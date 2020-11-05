@@ -43,11 +43,7 @@ const MovieCard = (props) => {
             <span> {props.movie.vote_average}</span>
           </p>
         </div>
-        <div className="card-footer">
-          <button type="button" className="btn w-100 btn-primary">
-            Add to Favorites
-          </button>
-        </div>
+        
       
       </div>
     </div>
