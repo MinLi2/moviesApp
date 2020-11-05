@@ -6,7 +6,8 @@ const filterByTitle = (movieList, string) =>
 
 const filterByGenre = (movieList, genreId) =>
   movieList.filter((m) => m.genre_ids.includes(genreId));
-
+const filterByTitleandGenre = (movieList, genreId,string) =>
+  movieList.filter((m) => (m.genre_ids.includes(genreId))&&(m.title.toLowerCase().search(string) !== -1));
 describe("Home Page ", () => {
   before(() => {
     // Get movies from TMDB and store in movies variable.
@@ -64,19 +65,38 @@ describe("Home Page ", () => {
           })
         });
         
-          describe("By movie genre", () => {
-            it("should display movies with the specified genre only", () => {
-              const selectedGenreId = 35;
-              const selectedGenreText = "Comedy";
-              const matchingMovies = filterByGenre(movies, selectedGenreId);
-              cy.get("select").select(selectedGenreText); 
-              cy.get(".card").should("have.length", matchingMovies.length);
-              cy.get(".card").each(($card, index) => {
-                cy.wrap($card)
-                  .find(".card-title")
-                  .should("have.text", matchingMovies[index].title);
-              });      
-            });
-        });
+        describe("By movie genre", () => {
+          it("should display movies with the specified genre only", () => {
+            const selectedGenreId = 35;
+            const selectedGenreText = "Comedy";
+            const matchingMovies = filterByGenre(movies, selectedGenreId);
+            cy.get("select").select(selectedGenreText); 
+            cy.get(".card").should("have.length", matchingMovies.length);
+            cy.get(".card").each(($card, index) => {
+              cy.wrap($card)
+                .find(".card-title")
+                .should("have.text", matchingMovies[index].title);
+            });      
+          });
+      });
+    
+   
+
+        describe("By title and genre", () => {
+          it("should display movies with the title and genre", () => {
+            const searchString = "o";
+            const selectedGenreId = 35;
+            const selectedGenreText = "Comedy";
+            const matchingMovies = filterByTitleandGenre(movies, selectedGenreId, searchString);
+            cy.get("input").clear().type(searchString);
+            cy.get("select").select(selectedGenreText); 
+            cy.get(".card").should("have.length", matchingMovies.length);
+            cy.get(".card").each(($card, index) => {
+              cy.wrap($card)
+                .find(".card-title")
+                .should("have.text", matchingMovies[index].title);
+            });      
+          });
+      });
       
       });
