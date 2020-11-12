@@ -11,6 +11,8 @@ const reducer = (state, action) => {
           m.id === action.payload.movie.id ? { ...m, favorite: true } : m
         ),
       };
+    case "add-watch-list":
+     
     case "load":
       return { movies: action.payload.movies };
       case "add-review":
@@ -24,7 +26,9 @@ const reducer = (state, action) => {
       break;
     default:
       return state;
+   
   }
+  
 };
 
 const MoviesContextProvider = (props) => {
@@ -34,22 +38,26 @@ const MoviesContextProvider = (props) => {
     const index = state.movies.map((m) => m.id).indexOf(movieId);
     dispatch({ type: "add-favorite", payload: { movie: state.movies[index] } });
   };
-
+  const addToWatchList = (movie, review) => {
+   
+  }; 
   const addReview = (movie, review) => {
     dispatch({ type: "add-review", payload: { movie, review } });
   }; 
   useEffect(() => {
     getMovies().then((movies) => {
-      dispatch({ type: "load", payload: { movies } });
+      dispatch({ type: "add-watch-list", payload: { movies } });
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
 
   return (
     <MoviesContext.Provider
       value={{
         movies: state.movies,
         favorites: state.favorites,
+        addWatchList: addToWatchList,
         addToFavorites: addToFavorites,
         addReview: addReview,
       }}

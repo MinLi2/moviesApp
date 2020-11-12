@@ -3,7 +3,7 @@ import {Link,Route,withRouter} from "react-router-dom";
 import PageTemplate from '../components/templateMovieListPage'
 import { getUpcomingMovie } from "../api/tmdb-api";
 import {MoviesContext} from '../contexts/moviesContext'
-import AddToFavoritesButton from '../components/buttons/addToFavorites'
+import AddToFavoritesWLButton from '../components/buttons/addToWatchList'
 
 
 
@@ -21,7 +21,7 @@ import AddToFavoritesButton from '../components/buttons/addToFavorites'
         title="No. Movies"
         movies={movies}  /* Changed */
         action={(movie) => {
-          return <AddToFavoritesButton movie={movie} />;
+          return <AddToFavoritesWLButton movie={movie} />;
         }}
       />
     );
