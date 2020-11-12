@@ -1,35 +1,31 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,useContext } from "react";
 import {Link,Route,withRouter} from "react-router-dom";
-import StubAPI from "../api/stubAPI";
 import PageTemplate from '../components/templateMovieListPage'
 import { getUpcomingMovie } from "../api/tmdb-api";
-
-const UpcomingMoviePage = () => {
-  const [movies, setMovies] = useState([]);
-  useEffect(() => {
-    getUpcomingMovie().then(movies => {
-      setMovies(movies);
-    });
-  }, []);
+import {MoviesContext} from '../contexts/moviesContext'
+import AddToFavoritesButton from '../components/buttons/addToFavorites'
 
 
-  const addToFavorites = movieId => {
-    setMovies(movies => {
-      const index = movies.map(m => m.id).indexOf(movieId);
-      StubAPI.add(movies[index]);
-      let newMoviesState = [...movies]
-      newMoviesState.splice(index, 1);
-      return newMoviesState;
-    });
+
+  const UpcomingMoviePage = () => {
+    const [movies, setMovies] = useState([]);
+    useEffect(() => {
+      getUpcomingMovie().then(movies => {
+        setMovies(movies);
+      });
+    }, []);
+    const context = useContext(MoviesContext);
+  
+    return (
+      <PageTemplate
+        title="No. Movies"
+        movies={movies}  /* Changed */
+        action={(movie) => {
+          return <AddToFavoritesButton movie={movie} />;
+        }}
+      />
+    );
   };
 
-  return (
-      <PageTemplate
-        title='Discover Movies'
-        movies={movies}
-        buttonHandler={addToFavorites}
-      />
-  );
-};
 
 export default withRouter(UpcomingMoviePage);
