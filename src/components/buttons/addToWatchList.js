@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 import {MoviesContext} from "../../contexts/moviesContext";
 
-const AddToFavoriteWLButton = ({ movie }) => {
+const AddToWatchListButton = ({ movie }) => {
   const context = useContext(MoviesContext);
 
-  const handleAddToFavorite = e => {
+  const handleAddToWatchList = e => {
     e.preventDefault();
     context.addToFavorites(movie.id);
   };
@@ -12,11 +12,10 @@ const AddToFavoriteWLButton = ({ movie }) => {
     <button
       type="button"
       className="btn w-100 btn-primary"
-      onClick={handleAddToFavorite}
+      onClick={handleAddToWatchList}
     >
       Add to Watch List
     </button>
   );
 };
-
-export default AddToFavoriteWLButton;
+export default AddToWatchListButton;
