@@ -1,0 +1,38 @@
+image: cypress/browsers:node12.0.0-chrome73
+
+stages:
+   - install
+   - build
+   - test
+
+# NEW
+variables:
+   npm_config_cache: "$CI_PROJECT_DIR/.npm"
+   CYPRESS_CACHE_FOLDER: "$CI_PROJECT_DIR/cache/Cypress"
+
+cache:
+   key:
+     files:
+        - package.json
+   paths:
+      - .npm
+      - cache/Cypress
+      - node_modules
+# END NEW
+
+install_dependencies:
+  stage: install
+  script:
+    - npm ci
+  
+
+bundle_app:
+  stage: build
+  script:
+    - npm run build
+  artifacts:
+    paths:
+      - build/
+
+
+
