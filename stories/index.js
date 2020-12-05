@@ -7,6 +7,8 @@ import MoviesHeader from "../src/components/headerMovieList";
 import MovieList from "../src/components/movieList";
 import MovieDetails from "../src/components/movieDetails";
 import MovieHeader from "../src/components/headerMovie";
+import PeopleHeader from "../src/components/headerPeople";
+import MoviePeopleDetails from "../src/components/moviePeopleDetails";
 import AddFavoriteButton from "../src/components/buttons/addToFavorites";
 import { MemoryRouter } from "react-router";
 import GenresContextProvider from "../src/contexts/genresContext";
@@ -148,6 +150,18 @@ storiesOf("Movie Details Page/MovieDetails", module).add("default", () => (
 ));
 
 storiesOf("Movie Details Page/MovieHeader", module)
+  .addDecorator(story => (
+    <MemoryRouter initialEntries={["/"]}>{story()}</MemoryRouter>
+  ))
+  .add("default", () => <MovieHeader movie={sample} />);
+
+
+
+storiesOf("Movie People Page/MoviePeopleDetails", module).add("default", () => (
+  <MoviePeopleDetails movie={sample} />
+));
+
+storiesOf("Movie People Page/PeopleHeader", module)
   .addDecorator(story => (
     <MemoryRouter initialEntries={["/"]}>{story()}</MemoryRouter>
   ))

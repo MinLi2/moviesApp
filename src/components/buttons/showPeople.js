@@ -1,22 +1,22 @@
 import React, { useContext } from "react";
 import {MoviesContext} from "../../contexts/moviesContext";
 
-const  ScoreMovieButton = ({ movie }) => {
+const ShowPeopleButton = ({ movie }) => {
   const context = useContext(MoviesContext);
 
-  const handleScoreMovie = e => {
+  const handleShowPeople = e => {
     e.preventDefault();
-    context.scoreMovie(movie.id);
+    context.showPeople(movie.id);
   };
   return (
     <button
       type="button"
       className="btn w-100 btn-primary"
-      onClick={handleScoreMovie}
+      onClick={handleShowPeople}
     >
-      Score Movie
+      Show people
     </button>
   );
 };
 
-export default ScoreMovieButton;
+export default ShowPeopleButton;
