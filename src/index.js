@@ -10,6 +10,7 @@ import SiteHeader from './components/siteHeader'
 import UpcomingMoviePage from "./pages/UpcomingMoviePage";
 import NowPlayingMoviePage from "./pages/NowPlayingMoviePage";
 import SimilarMoviePage from "./pages/SimilarMoviePage";
+import MoviePeoplePage from "./pages/moviePeoplePage";
 import MoviesContextProvider from "./contexts/moviesContext";
 import GenresContextProvider from "./contexts/genresContext";
 import AddMovieReviewPage from './pages/addMovieReviewPage'
@@ -28,6 +29,7 @@ const App = () => {
           <Route exact path="/movies/favorites" component={FavoriteMoviesPage} />
           <Route exact path="/movies/upcoming" component={UpcomingMoviePage} />
           <Route exact path="/movies/nowplayingmovie" component={NowPlayingMoviePage} />
+          <Route exact path="/people" component={MoviePeoplePage} />
           <Route exact path="/movies/similar" component={SimilarMoviePage} />
           <Route path="/movies/:id" component={MoviePage} />
           <Route path="/" component={HomePage} />

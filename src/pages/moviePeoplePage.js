@@ -1,30 +1,22 @@
 import React, {useState, useEffect } from "react";
-import HeaderPeople from "../components/headerPeople";
-import MoviePeopleDetails from "../components/moviePeopleDetails";
+import Header from "../components/headerPeople";
+import PeopleList from "../components/peopleList";
+import { getPeople } from "../api/tmdb-api";
 
 
-const MoviePeoplePage = () => {
-  const [movies, setMovies] = useState([]);
+
+const PeoplePage = () => {
+  const [peoples, setPeoples] = useState([]);
   useEffect(() => {
-    fetch(
-      `https://api.themoviedb.org/3/person/{person_id}/images?api_key=${process.env.REACT_APP_TMDB_KEY}`
-    )
-      .then(res => res.json())
-      .then(json => {
-        console.log(json)
-        return json.results
-      })
-      .then(movies => {
-        setMovies(movies);
-      });
+    getPeople().then(peoples => {
+      setPeoples(peoples);
+    });
   }, []);
   return (
     <>
-   <HeaderPeople  />
-     
-      <MoviePeopleDetails  /> 
+      <Header idPeoples={peoples.length} />
+      <PeopleList peoples={peoples} />
     </>
   );
-};
-
-export default MoviePeoplePage;
+}
+export default PeoplePage;
