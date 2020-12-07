@@ -1,33 +1,31 @@
-import React, { useState } from "react";
-import Header from "../headerPeoole";
-import PeopleList from "../peopleList";
+import React from "react";
 
-const peopleListPageTemplate = ({peoples, id, buttonHandler}) => {
-  let displayedPeoples = peoples
-    .filter(m => {
-      return m.id.toLowerCase().search(nameFilter.toLowerCase()) !== -1;
-    })
-    .filter(m => {
-      return  genre > 0
-        ? m.genre_ids.includes(Number(genreFilter))
-        : true;
-    });
 
-  const handleChange = (type, value) => {
-    if (type === "name") setNameFilter(value);
-    else setGenreFilter(value);
-  };
+import HeaderPeople from '../headerPeople';
+//import PeopleList from "../components/peopleList";
+//import "./peoplepage.css";
 
+const TemplatePeopleListPage = ({ people, children }) => {
   return (
     <>
-      <Header title={title} numMovies={displayedMovies.length} />
-      <FilterControls onUserInput={handleChange} numMovies={displayedMovies.length}/>
-      <MovieList
-        buttonHandler={buttonHandler}
-        movies={displayedMovies}
-      ></MovieList>
+      <HeaderPeople people={people} />
+      <div className="row">
+        <div className="col-3">
+          <img
+            src={
+                people.profile_path
+                ? `https://image.tmdb.org/t/p/w500/${people.profile_path}`
+                : "./film-poster-placeholder.png"
+            }
+            className="people"
+            alt={people.name}
+          />
+        </div>
+        <div className="col-9">{children}</div>
+      </div>
     </>
   );
 };
 
-export default peopleListPageTemplate ;
+export default TemplatePeopleListPage;
+

@@ -20,3 +20,4 @@ const PeoplePage = () => {
   );
 }
 export default PeoplePage;
+
