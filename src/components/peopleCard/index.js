@@ -31,6 +31,11 @@ const peopleCard = ({people}) => {
             <span> {people.popularity}</span>
           </p>
         </div>
+        <div className="card-footer">
+          <button type="button" className="btn w-100 btn-primary">
+            show people details
+          </button>
+          </div>
       </div>
     </div>
   );

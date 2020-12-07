@@ -3,6 +3,7 @@ import Header from "../headerMovieList";
 import MovieList from "../movieList";
 import FilterControls from "../filterControls";
 
+
 const MovieListPageTemplate = ({ movies, title, action }) => {
   const [nameFilter, setNameFilter] = useState("");
   const [genreFilter, setGenreFilter] = useState("0");
@@ -25,11 +26,15 @@ const MovieListPageTemplate = ({ movies, title, action }) => {
   return (
     <>
       <Header title={title} numMovies={displayedMovies.length} />
+     
       <FilterControls onUserInput={handleChange} numMovies={displayedMovies.length}/>
+      
       <MovieList
        action={action}
        movies={displayedMovies}
+
     />
+    
     </>
   );
 };

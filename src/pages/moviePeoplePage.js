@@ -1,5 +1,5 @@
 import React, {useState, useEffect } from "react";
-import Header from "../components/headerPeople";
+import HeaderPeople from "../components/headerPeople";
 import PeopleList from "../components/peopleList";
 import { getPeople } from "../api/tmdb-api";
 
@@ -14,7 +14,7 @@ const PeoplePage = () => {
   }, []);
   return (
     <>
-      <Header idPeoples={peoples.length} />
+      <HeaderPeople idPeoples={peoples.length} />
       <PeopleList peoples={peoples} />
     </>
   );

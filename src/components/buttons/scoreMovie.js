@@ -14,8 +14,8 @@ const  ScoreMovieButton = ({ movie }) => {
       //className="btn w-100 btn-primary"
       //onClick={handleScoreMovie}
     >
-      Score Movie
-      <a href=" /people" >Get people</a>
+     
+      <a href="/people" >Get people</a>
     </button>
   );
 };

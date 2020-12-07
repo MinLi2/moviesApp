@@ -47,6 +47,11 @@ const SiteHeader = () => {
               Similar 
             </Link>
           </li>
+          <li className="nav-item">
+            <Link className="nav-link text-white" to="people">
+              Movie People
+            </Link>
+          </li>
           
           <li className="nav-item">
             <Link className="nav-link text-white" to="/movies/favorites">

@@ -10,6 +10,7 @@ import MovieHeader from "../src/components/headerMovie";
 import PeopleHeader from "../src/components/headerPeople";
 import MoviePeopleDetails from "../src/components/moviePeopleDetails";
 import AddFavoriteButton from "../src/components/buttons/addToFavorites";
+import PeopleDetailsHeader from "../src/components/headerPeopleDetails";
 import { MemoryRouter } from "react-router";
 import GenresContextProvider from "../src/contexts/genresContext";
 import { action } from "@storybook/addon-actions";
@@ -166,3 +167,7 @@ storiesOf("Movie People Page/PeopleHeader", module)
     <MemoryRouter initialEntries={["/"]}>{story()}</MemoryRouter>
   ))
   .add("default", () => <MovieHeader movie={sample} />);
+
+storiesOf("People Details Page/PeopleDetailsHeader", module).add("default", () => (
+    <PeopleDetailsHeader movie={sample} />
+  ));
