@@ -1,6 +1,7 @@
 import React, {useState, useEffect } from "react";
-import HeaderPeople from "../components/headerPeople";
-import PeopleList from "../components/peopleList";
+
+import StubAPI from "../api/stubAPI";
+import PeopleTemplateListPage from '../components/templatePeopleListPage'
 import { getPeople } from "../api/tmdb-api";
 
 
@@ -12,7 +13,7 @@ const PeoplePage = () => {
       setPeoples(peoples);
     });
   }, []);
-  const addToFavoritePeople = movieId => {
+  const addToFavoritePeople = peopleId => {
     // Find index position of selected movie in the list
     const index = peoples.map(m => m.id).indexOf(peopleId)
 
@@ -22,13 +23,12 @@ const PeoplePage = () => {
     setPeoples(updatedList)  
   }
   return (
-    <>
-      <HeaderPeople idPeoples={peoples.length} />
-      <PeopleList 
-      peoples={peoples} 
-      
-      buttonHandler={addToFavoritePeople}/>
-    </>
+    
+     <PeopleTemplateListPage
+        title='Discover Movies'
+        peoples={peoples}
+        buttonHandler={addToFavoritePeople}
+      />
   );
 }
 export default PeoplePage;

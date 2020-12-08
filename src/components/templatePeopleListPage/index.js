@@ -1,31 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
+import HeaderPeople from "../headerPeople";
+import PeopleList from "../peopleList";
 
-
-import HeaderPeople from '../headerPeople';
-//import PeopleList from "../components/peopleList";
-//import "./peoplepage.css";
-
-const TemplatePeopleListPage = ({ people, children }) => {
+const PeopleTemplateListPage = ({ peoples, name, action }) => { 
+  const [nameFilter] = useState("");
+  let displayedPeoples = peoples
+    .filter(m => {
+      return m.name.toLowerCase().search(nameFilter.toLowerCase()) !== -1;
+    });
   return (
     <>
-      <HeaderPeople people={people} />
-      <div className="row">
-        <div className="col-3">
-          <img
-            src={
-                people.profile_path
-                ? `https://image.tmdb.org/t/p/w500/${people.profile_path}`
-                : "./film-poster-placeholder.png"
-            }
-            className="people"
-            alt={people.name}
-          />
-        </div>
-        <div className="col-9">{children}</div>
-      </div>
+      <HeaderPeople numPeoples={displayedPeoples.length} />
+      <PeopleList
+       action={action}
+       peoples={displayedPeoples}
+    />
     </>
   );
 };
 
-export default TemplatePeopleListPage;
-
+export default PeopleTemplateListPage ;

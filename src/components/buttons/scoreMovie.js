@@ -15,7 +15,7 @@ const  ScoreMovieButton = ({ movie }) => {
       //onClick={handleScoreMovie}
     >
      
-      <a href="/people" >Get people</a>
+      
     </button>
   );
 };
