@@ -1,50 +1,43 @@
 import React from "react";
-import "./peopleCard.css";
 import { Link } from "react-router-dom";
+import "./peopleCard.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../../globals/fontawesome";
 
-const peopleCard = ({people}) => {
-  const handleAddToFavoritePeople = e => {
-    e.preventDefault()
-    people.buttonHandler(people.id)  // new line
-  }
+const PeopleCard = props => {
   return (
     <div className="col-sm-3">
       <div className="card  bg-white">
-      <Link to={`/people/${people.id}`}>
+      <Link to={`/peoples/${props.people.id}`}>
         <img
           className="card-img-tag center "
-          alt={people.name}
+          alt={props.people.name}
           src={
-            people.profile_path
-              ? `https://image.tmdb.org/t/p/w500/${people.profile_path}`
+            props.people.profile_path
+              ? `https://image.tmdb.org/t/p/w500/${props.people.profile_path}`
               : "./film-poster-placeholder.png"
           }
         />
-         </Link>
+      </Link>
         <div className="card-body">
-          <h4 className="card-title ">{people.name}</h4>
-        
+          <h4 className="card-title ">{props.people.name}</h4>
           <p>
-            <FontAwesomeIcon icon={["fas", "star"]} />
-            <span> {people.name}</span>
+            <FontAwesomeIcon icon={["fas", "calendar"]} />
+            <span> {props.people.release_date}</span>
           </p>
           <p>
             <FontAwesomeIcon icon={["fas", "star"]} />
-            <span> {people.popularity}</span>
+            <span> {props.people.vote_average}</span>
           </p>
         </div>
         <div className="card-footer">
-          <button type="button" className="btn w-100 btn-primary"
-                onClick={handleAddToFavoritePeople}
-                >
+          <button type="button" className="btn w-100 btn-primary">
             Add to Favorites
           </button>
         </div>
+      </div>
     </div>
-  </div>
   );
 };
 
-export default peopleCard ;
+export default PeopleCard ;

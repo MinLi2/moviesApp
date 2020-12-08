@@ -59,7 +59,9 @@ const SiteHeader = () => {
               Favorite People
             </Link>
           </li>
+        
         </ul>
+        
       </nav>
     </nav>
   );

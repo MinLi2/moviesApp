@@ -60,11 +60,9 @@ export const getMovies = () => {
       .then(json => json.results);
   };
 
-
   export const getPeopleDetails = id => {
     return fetch(
       `https://api.themoviedb.org/3/person/${id}?api_key=${process.env.REACT_APP_TMDB_KEY}`
-    )
-      .then(res => res.json())
-      .then(json => json.results);
+    ).then(res => res.json());
   };
+  

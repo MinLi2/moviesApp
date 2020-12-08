@@ -10,7 +10,7 @@ const PeopleTemplateListPage = ({ peoples, name, action }) => {
     });
   return (
     <>
-      <HeaderPeople numPeoples={displayedPeoples.length} />
+      <HeaderPeople name={name} numPeoples={displayedPeoples.length} />
       <PeopleList
        action={action}
        peoples={displayedPeoples}

@@ -1,14 +1,11 @@
 import React from "react";
+import PeopleDetailsHeader from '../headerPeopleDetails';
+import "./peopleDetail.css";
 
-
-import HeaderPeople from '../headerPeople';
-//import PeopleList from "../components/peopleList";
-//import "./peoplepage.css";
-
-const TemplatePeopleListPage = ({ people, children }) => {
+const TemplatePeoplePage = ({ people, children }) => {
   return (
     <>
-      <HeaderPeople people={people} />
+      <PeopleDetailsHeader people={people} />
       <div className="row">
         <div className="col-3">
           <img
@@ -27,5 +24,5 @@ const TemplatePeopleListPage = ({ people, children }) => {
   );
 };
 
-export default TemplatePeopleListPage;
+export default TemplatePeoplePage;
 

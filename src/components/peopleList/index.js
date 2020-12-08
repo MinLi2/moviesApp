@@ -3,10 +3,10 @@ import People from "../peopleCard/";
 import "./peopleList.css";
 
 const PeopleList =  props =>  {
-  const peoplecards = props.peoples.map(m => (
-    <People key={m.id} people={m}   buttonHandler={props.buttonHandler}/>
+  const peopleCards = props.peoples.map(m => (
+    <People key={m.id} people={m}   />
   ));
-  return <div className="row peoples bg-info">{peoplecards}</div>;
+  return <div className="row peoples bg-info">{peopleCards}</div>;
 };
 
 export default PeopleList;
