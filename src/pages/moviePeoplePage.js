@@ -1,33 +1,20 @@
-import React, {useState, useEffect } from "react";
+import React, {useContext} from "react";
 
-import peopleStubAPI from "../api/peopleStubAPI";
+//import peopleStubAPI from "../api/peopleStubAPI";
 import PeopleTemplateListPage from '../components/templatePeopleListPage'
-import { getPeople } from "../api/tmdb-api";
+//import { getPeople } from "../api/tmdb-api";
+import { PeopleContext } from "../contexts/peopleContext";
 
 
 
 const PeoplePage = () => {
-  const [peoples, setPeoples] = useState([]);
-  useEffect(() => {
-    getPeople().then(peoples => {
-      setPeoples(peoples);
-    });
-  }, []);
-  const addToFavoritePeople = peopleId => {
-    setPeoples(peoples => {
-      const index = peoples.map(m => m.id).indexOf(peopleId);
-      peopleStubAPI.add(peoples[index]);
-      let newPeoplesState = [...peoples]
-      newPeoplesState.splice(index, 1);
-      return newPeoplesState;
-    });
-  };
+  const context = useContext(PeopleContext) 
   return (
     
      <PeopleTemplateListPage
-        title='Discover Movies'
-        peoples={peoples}
-        buttonHandler={addToFavoritePeople}
+        title='No.People'
+        peoples={context.peoples}
+        buttonHandler={context.addToFavoritePeople}
       />
   );
 }
