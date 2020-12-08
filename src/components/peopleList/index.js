@@ -4,7 +4,7 @@ import "./peopleList.css";
 
 const PeopleList =  props =>  {
   const peopleCards = props.peoples.map(m => (
-    <People key={m.id} people={m}   />
+    <People key={m.id} people={m} buttonHandler={props.buttonHandler} />
   ));
   return <div className="row peoples bg-info">{peopleCards}</div>;
 };

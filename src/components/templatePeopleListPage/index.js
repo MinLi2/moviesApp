@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import HeaderPeople from "../headerPeople";
+//import HeaderPeople from "../headerPeople";
+import HeaderPeopleList from "../headerPeopleList";
 import PeopleList from "../peopleList";
 
-const PeopleTemplateListPage = ({ peoples, name, action }) => { 
+const PeopleTemplateListPage = ({ peoples, title, buttonHandler }) => { 
   const [nameFilter] = useState("");
   let displayedPeoples = peoples
     .filter(m => {
@@ -10,11 +11,12 @@ const PeopleTemplateListPage = ({ peoples, name, action }) => {
     });
   return (
     <>
-      <HeaderPeople name={name} numPeoples={displayedPeoples.length} />
+      <HeaderPeopleList title={title} numPeoples={displayedPeoples.length} />
       <PeopleList
-       action={action}
+       
+       buttonHandler={buttonHandler}
        peoples={displayedPeoples}
-    />
+    ></PeopleList>
     </>
   );
 };

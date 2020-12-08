@@ -1,17 +1,16 @@
 import React from "react";
-import StubAPI from "../api/stubAPI";
+import peopleStubAPI from "../api/peopleStubAPI";
+
 import PeopleTemplateListPage from "../components/templatePeopleListPage";
+const FavoritePeoplePage = () => {
+    const toDo = () => true;
 
-const FavoritePeoplePage = props => {
-  const toDo = () => true;
-
-  return (
-    <PeopleTemplateListPage
-      peoples={StubAPI.getAll()}
-      title={"Favorite People"}
-      buttonHandler={toDo}
-    />
-  );
-};
-
-export default FavoritePeoplePage;
+    return (
+      <PeopleTemplateListPage
+        movies={peopleStubAPI.getAll()}
+        title={"Favorite People"}
+        buttonHandler={toDo}
+      />
+    );
+  };
+export default FavoritePeoplePage

@@ -1,18 +1,10 @@
-import React, {useState, useEffect}  from "react";
+import React from "react";
 import PeopleHeader from "../components/headerPeopleDetails";
 import PeopleDetails from "../components/moviePeopleDetails";
-
+import usePeople from "../hooks/usePeople";
 const PeoplePage = props => {
   const { id } = props.match.params
-  const [people, setPeople] = useState(null)
-  useEffect(() => {
-    fetch(
-      `https://api.themoviedb.org/3/person/${id}?api_key=${process.env.REACT_APP_TMDB_KEY}`
-    ).then(res => res.json())    
-    .then(people => {
-      setPeople(people);
-    })
-  }, [id])
+  const [people] = usePeople(id) 
   return (
     <>
       {people ? (
