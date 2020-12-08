@@ -1,15 +1,14 @@
 import React from "react";
 import peopleStubAPI from "../api/peopleStubAPI";
-
+import AddPeopleReviewButton from '../components/buttons/addReview'
 import PeopleTemplateListPage from "../components/templatePeopleListPage";
-const FavoritePeoplePage = () => {
-    const toDo = () => true;
+const FavoritePeoplePage = props => {
 
     return (
       <PeopleTemplateListPage
-        movies={peopleStubAPI.getAll()}
+        peoples={peopleStubAPI.getAll()}
         title={"Favorite People"}
-        buttonHandler={toDo}
+        action={people => <AddPeopleReviewButton people={people} />}
       />
     );
   };

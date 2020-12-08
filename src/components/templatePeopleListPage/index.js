@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import HeaderPeopleList from "../headerPeopleList";
 import PeopleList from "../peopleList";
 
-const PeopleTemplateListPage = ({ peoples, title, buttonHandler }) => { 
+const PeopleTemplateListPage = ({ peoples, title, action }) => { 
   const [nameFilter] = useState("");
   let displayedPeoples = peoples
     .filter(m => {
@@ -14,7 +14,7 @@ const PeopleTemplateListPage = ({ peoples, title, buttonHandler }) => {
       <HeaderPeopleList title={title} numPeoples={displayedPeoples.length} />
       <PeopleList
        
-       buttonHandler={buttonHandler}
+       action={action}
        peoples={displayedPeoples}
     ></PeopleList>
     </>
