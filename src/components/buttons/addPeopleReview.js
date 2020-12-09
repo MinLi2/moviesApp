@@ -1,14 +1,20 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-const AddPeopleReviewButton = () => {
+const AddPeopleReviewButton = ({people}) => {
   return (
-    <button
-      type="button"
-      className="btn w-100 btn-primary"
-    >
-      Write a Review
-    </button>
-  );
+    <Link
+    className="btn w-100 btn-primary "
+    to={{
+      pathname: `/review/peopleform`,
+      state: {
+        people: people
+      }
+    }}
+  >
+    Write a Review
+  </Link>
+);
 };
 
 export default AddPeopleReviewButton;

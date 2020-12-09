@@ -1,5 +1,5 @@
 import React, {useContext} from "react";
-import AddPeopleReviewButton from '../components/buttons/addReview'
+import AddPeopleReviewButton from '../components/buttons/addPeopleReview'
 import PeopleTemplateListPage from "../components/templatePeopleListPage";
 import {PeopleContext} from '../contexts/peopleContext'
 const FavoritePeoplePage = props => {

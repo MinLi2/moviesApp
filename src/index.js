@@ -15,8 +15,8 @@ import MoviePeoplePage from "./pages/moviePeoplePage";
 import MoviesContextProvider from "./contexts/moviesContext";
 import GenresContextProvider from "./contexts/genresContext";
 import PeopleContextProvider from "./contexts/peopleContext";
-import AddMovieReviewPage from './pages/addMovieReviewPage'
-
+import AddMovieReviewPage from './pages/addMovieReviewPage';
+import AddPeopleReviewPage from './pages/addPeopleReviewPage';
 const App = () => {
   return (
       <BrowserRouter>
@@ -27,6 +27,7 @@ const App = () => {
           <GenresContextProvider>    {/* NEW */}
           <PeopleContextProvider>
         <Switch>
+        <Route exact path="/review/peopleform" component={AddPeopleReviewPage} />
           <Route exact path="/reviews/form" component={AddMovieReviewPage} /> 
           <Route path="/reviews/:id" component={MovieReviewPage} />
           <Route exact path="/movies/favorites" component={FavoriteMoviesPage} />
