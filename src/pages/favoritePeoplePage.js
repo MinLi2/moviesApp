@@ -1,15 +1,17 @@
-import React from "react";
-import peopleStubAPI from "../api/peopleStubAPI";
+import React, {useContext} from "react";
 import AddPeopleReviewButton from '../components/buttons/addReview'
 import PeopleTemplateListPage from "../components/templatePeopleListPage";
+import {PeopleContext} from '../contexts/peopleContext'
 const FavoritePeoplePage = props => {
+    const context = useContext(PeopleContext);
+    const favorites = context.peoples.filter( m => m.favorite )
 
     return (
       <PeopleTemplateListPage
-        peoples={peopleStubAPI.getAll()}
+        peoples={favorites}
         title={"Favorite People"}
         action={people => <AddPeopleReviewButton people={people} />}
       />
     );
   };
-export default FavoritePeoplePage
+export default FavoritePeoplePage;

@@ -7,11 +7,14 @@ import AddToFavoritePeopleButton from '../components/buttons/addToFavouritePeopl
 
 const PeoplePage = () => {
   const context = useContext(PeopleContext) 
+  const peoples = context.peoples.filter((m) => {  // New
+    return !("favorite" in m);
+  });
   return (
     
      <PeopleTemplateListPage
         title='No.People'
-        peoples={context.peoples}
+        peoples={peoples}
         action={(people) => {
           return <AddToFavoritePeopleButton people={people} /> 
         }}
