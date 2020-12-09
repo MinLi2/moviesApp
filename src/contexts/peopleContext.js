@@ -8,9 +8,7 @@ const reducer = (state, action) => {
         return {
           peoples: state.peoples.map((m) =>
             m.id === action.payload.people.id ? { ...m, favorite: true } : m
-          ),
-         
-         
+          ),       
         };
     
      
@@ -24,8 +22,7 @@ const reducer = (state, action) => {
             m.id === action.payload.people.id
               ? { ...m, peoplereview: action.payload.peoplereview }
               : m
-          ),
-          
+          ),       
         };
       default:
         return state;
@@ -56,10 +53,7 @@ const reducer = (state, action) => {
         value={{
         peoples: state.peoples,  
         addToFavoritePeople: addToFavoritePeople,
-        addPeopleReview: addPeopleReview,
-          
-         
-         
+        addPeopleReview: addPeopleReview,        
         }}
       >
         {props.children}
