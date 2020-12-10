@@ -3,14 +3,14 @@ import "./moviePeopleDetails.css";
 export default ({ people }) => {
   return (
     <>
-      <h4>also_known_as</h4>
-      <p>{people.also_known_as}</p>
+      <h4>popularity</h4>
+      <p>{people.popularity}</p>
       <ul className="list-group list-group-horizontal">
         <li key="slh" className="list-group-item list-group-item-dark">
-         popularity
+        also_known_as
         </li>
         <li key="kno" className="list-group-item ">
-          {people.popularity}
+          {people.also_known_as}
           </li>
       </ul>
       <ul className="list-group list-group-horizontal">
@@ -23,10 +23,10 @@ export default ({ people }) => {
       </ul>
       <ul className="list-group list-group-horizontal">
         <li key="pch" className="list-group-item list-group-item-dark">
-        homepage
+        profile_path
         </li>
         <li key="kno" className="list-group-item ">
-          {people.homepage}
+          {people.profile_path}
           </li>
       </ul>
       <ul className="list-group list-group-horizontal">
@@ -39,10 +39,10 @@ export default ({ people }) => {
       </ul>
       <ul className="list-group list-group-horizontal">
         <li key="pch" className="list-group-item list-group-item-dark">
-        deathday
+        biography
         </li>
         <li key="kno" className="list-group-item ">
-          {people.deathday}
+          {people.biography}
           </li>
       </ul>
     </>
