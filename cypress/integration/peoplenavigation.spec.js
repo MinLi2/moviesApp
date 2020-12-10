@@ -27,8 +27,10 @@ describe("Navigation", () => {
 
   describe("From the people home page", () => {
     beforeEach(() => {
-      cy.visit("/people");
-    });
+        cy.visit(`/`);
+        cy.get("nav").find("li").eq(3).find("a").click();
+       
+      });
     it("should navigate to the people details page and change browser URL", () => {
       cy.get(".card").eq(2).find("img").click();
       cy.url().should("include", `/peoples/${peoples[2].id}`);
@@ -46,7 +48,8 @@ describe("Navigation", () => {
   });
   describe("From the Favorite people page", () => {
     beforeEach(() => {
-      cy.visit("/people");
+      cy.visit(`/`);
+      cy.get("nav").find("li").eq(3).find("a").click();   
       cy.get(".card").eq(0).find("button").click();
       cy.get("nav").find("li").eq(3).find("a").click();
     });
@@ -58,8 +61,10 @@ describe("Navigation", () => {
   });
   describe("The Go Back button", () => {
     beforeEach(() => {
-      cy.visit("/people");
-    });
+        cy.visit(`/`);
+        cy.get("nav").find("li").eq(3).find("a").click();
+       
+      });
     it("should navigate from people home page to people details and back", () => {
       cy.get(".card").eq(2).find("img").click();
       cy.get("svg[data-icon=arrow-circle-left]").click();

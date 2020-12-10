@@ -28,7 +28,8 @@ describe("People Details Page", () => {
       })
   });
   beforeEach(() => {
-    cy.visit(`/people`);
+    cy.visit(`/`);
+    cy.get("nav").find("li").eq(3).find("a").click();
     cy.get(".card").eq(2).find("img").click();
   });
 
