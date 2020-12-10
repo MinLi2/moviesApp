@@ -44,5 +44,17 @@ describe("Navigation", () => {
       
     });
   });
+  describe("From the Favorite  page", () => {
+    beforeEach(() => {
+      cy.visit("/people");
+      cy.get(".card").eq(0).find("button").click();
+      cy.get("nav").find("li").eq(3).find("a").click();
+    });
+    it("should navigate to the movies detail page and change the browser URL", () => {
+      cy.get(".card").eq(1).find("img").click();
+      cy.url().should("include", `/peoples/${peoples[2].id}`);
+      cy.get("h2").contains(peoples[2].name);
+    });
+  });
 
 });
