@@ -36,7 +36,7 @@ describe("Navigation", () => {
       cy.get("h2").contains(movies[1].title);
     });
     it("should allow navigation from site header", () => {
-      cy.get("nav").find("li").eq(2).find("a").click();
+      cy.get("nav").find("li").eq(4).find("a").click();
       cy.url().should("include", `/favorites`);
       cy.get("h2").contains("Favorite Movies");
       cy.get("nav").find("li").eq(1).find("a").click();
@@ -49,22 +49,22 @@ describe("Navigation", () => {
     });
   });
 
-  // describe("From the Movie Details page ", () => {
-  //   beforeEach(() => {
-  //    cy.visit(`/movies/${movieId}`);
-  //   });
-  //   it("should change browser URL when show/hide reviews is clicked", () => {
-  //     cy.contains("Show Reviews").click();
-  //     cy.url().should("include", `/movies/${movieId}/reviews`);
-  //     cy.contains("Hide Reviews").click();
-  //     cy.url().should("not.include", `/movies/${movieId}/reviews`);
-  //   });
-  //   it("navigate to the full review page when a 'Full Review' link is clicked", () => {
-  //       cy.contains("Show Reviews").click();
-  //       cy.contains("Full Review").click();
-  //       cy.url().should("include", `/reviews/${movieReviews}`);
-  //   });
-  // });
+   describe("From the Movie Details page ", () => {
+     beforeEach(() => {
+      cy.visit(`/movies/${movieId}`);
+     });
+     it("should change browser URL when show/hide reviews is clicked", () => {
+       cy.contains("Show Reviews").click();
+       cy.url().should("include", `/movies/${movieId}/reviews`);
+       cy.contains("Hide Reviews").click();
+       cy.url().should("not.include", `/movies/${movieId}/reviews`);
+     });
+     it("navigate to the full review page when a 'Full Review' link is clicked", () => {
+         cy.contains("Show Reviews").click();
+         cy.contains("Full Review").click();
+         cy.url().should("include", `/reviews/${movieReviews}`);
+     });
+   });
 
 
   describe("From the Favorites page", () => {
@@ -91,7 +91,7 @@ describe("Navigation", () => {
     });
     it("should navigate from favorites page to movie details and back", () => {
         cy.get(".card").eq(2).find("button").click();
-        cy.get("nav").find("li").eq(2).find("a").click();
+        cy.get("nav").find("li").eq(4).find("a").click();
         cy.get(".card").eq(0).find("img").click();
         cy.get("svg[data-icon=arrow-circle-left]").click();
         cy.url().should("include", `movies/favorites`);

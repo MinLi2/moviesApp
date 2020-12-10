@@ -44,17 +44,37 @@ describe("Navigation", () => {
       
     });
   });
-  describe("From the Favorite  page", () => {
+  describe("From the Favorite people page", () => {
     beforeEach(() => {
       cy.visit("/people");
       cy.get(".card").eq(0).find("button").click();
       cy.get("nav").find("li").eq(3).find("a").click();
     });
-    it("should navigate to the movies detail page and change the browser URL", () => {
+    it("should navigate to the peoples detail page and change the browser URL", () => {
       cy.get(".card").eq(1).find("img").click();
       cy.url().should("include", `/peoples/${peoples[2].id}`);
       cy.get("h2").contains(peoples[2].name);
     });
   });
-
+  describe("The Go Back button", () => {
+    beforeEach(() => {
+      cy.visit("/people");
+    });
+    it("should navigate from people home page to people details and back", () => {
+      cy.get(".card").eq(2).find("img").click();
+      cy.get("svg[data-icon=arrow-circle-left]").click();
+      cy.url().should("include", `/people`);
+      cy.get("h2").contains("No.People");
+    });
+    it("should navigate from favorite people page to people details and back", () => {
+        cy.get(".card").eq(2).find("button").click();
+        cy.get("nav").find("li").eq(5).find("a").click();
+        cy.get(".card").eq(0).find("img").click();
+        cy.get("svg[data-icon=arrow-circle-left]").click();
+        cy.url().should("include", `people/favoritePeople`);
+        cy.get("h2").contains("Favorite People");
+    });
+  });
 });
+
+

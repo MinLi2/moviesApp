@@ -1,11 +1,17 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../../globals/fontawesome";
+import { withRouter } from "react-router-dom";
 
-const PeopleDetailsHeader = ({ people }) => {
- return (
- 
+const PeopleDetailsHeader = ({ people,history }) => {
+  return (
     <div className="row">
+             <div className="col-2">
+          <button onClick={() => history.goBack()}>
+            <FontAwesomeIcon icon={["fas", "arrow-circle-left"]} size="2x" />
+            <span>{" Back"}</span>
+          </button>
+        </div>
       <div className="col-6 offset-3">
         <h2>
           {people.name}
@@ -19,4 +25,4 @@ const PeopleDetailsHeader = ({ people }) => {
   );
 };
 
-export default PeopleDetailsHeader;
+export default withRouter(PeopleDetailsHeader);
