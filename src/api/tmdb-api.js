@@ -44,13 +44,7 @@ export const getMovies = () => {
       .then(json => json.results);
   };
 
-  export const getSimilarMovie = id => {
-    return fetch(
-      `https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`
-    )
-      .then(res => res.json())
-      .then(json => json.results);
-  };
+ 
 
   export const getPeople = id => {
     return fetch(
@@ -65,4 +59,13 @@ export const getMovies = () => {
       `https://api.themoviedb.org/3/person/${id}?api_key=${process.env.REACT_APP_TMDB_KEY}`
     ).then(res => res.json());
   };
+  
+  export const rateMovie = id => {
+    return fetch(
+      `https://api.themoviedb.org/3/movie/${id}/rating?api_key=${process.env.REACT_APP_TMDB_KEY}`
+    )
+      .then(res => res.json())
+      .then(json => json.results);
+  };
+
   
