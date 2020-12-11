@@ -50,11 +50,11 @@ describe("Navigation", () => {
     beforeEach(() => {
       cy.visit(`/`);
       cy.get("nav").find("li").eq(3).find("a").click();   
-      cy.get(".card").eq(0).find("button").click();
-      cy.get("nav").find("li").eq(3).find("a").click();
+      cy.get(".card").eq(2).find("button").click();
+      cy.get("nav").find("li").eq(5).find("a").click();
     });
     it("should navigate to the peoples detail page and change the browser URL", () => {
-      cy.get(".card").eq(1).find("img").click();
+      cy.get(".card").eq(0).find("img").click();
       cy.url().should("include", `/peoples/${peoples[2].id}`);
       cy.get("h2").contains(peoples[2].name);
     });
