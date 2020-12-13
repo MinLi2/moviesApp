@@ -19,6 +19,9 @@ import GenresContextProvider from "./contexts/genresContext";
 import PeopleContextProvider from "./contexts/peopleContext";
 import AddMovieReviewPage from './pages/addMovieReviewPage';
 import AddPeopleReviewPage from './pages/addPeopleReviewPage';
+import { AuthProvider } from "./contexts/AuthContext";
+import SignUpPage from "./pages/signUpPage";
+import DashboardPage from "./pages/DashboardPage";
 
 
 const App = () => {
@@ -30,6 +33,7 @@ const App = () => {
           <MoviesContextProvider>     {/* NEW  */}
           <GenresContextProvider>    {/* NEW */}
           <PeopleContextProvider>
+          <AuthProvider>
         <Switch>
         <Route exact path="/review/peopleform" component={AddPeopleReviewPage} />
           <Route exact path="/reviews/form" component={AddMovieReviewPage} /> 
@@ -39,13 +43,16 @@ const App = () => {
           <Route exact path="/movies/nowplayingmovie" component={NowPlayingMoviePage} />
           <Route exact path="/people" component={MoviePeoplePage} />
           <Route exact path="/people/favoritePeople" component={FavoritePeoplePage} />
-          <Route exact path="/login" component={LoginPage} />
+          <Route exact path="/Dashboard" component={DashboardPage} />
+          <Route path="/login" component={LoginPage} />
+          <Route path="/signup" component={SignUpPage} />
           <Route path="/peoples/:id" component={PeoplePage} />
           <Route path="/movies/ratemovie/:id" component={RateMoviePage} />
           <Route path="/movies/:id" component={MoviePage} />
           <Route path="/" component={HomePage} />
           <Redirect from="*" to="/" />
         </Switch>
+        </AuthProvider>
         </PeopleContextProvider>
         </GenresContextProvider>    {/* NEW */}
         </MoviesContextProvider>     {/* NEW */}

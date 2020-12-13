@@ -2,20 +2,19 @@ import React from 'react'
 
 //import Log from "../components/login/Log"
 import 'bootstrap/dist/css/bootstrap.min.css'
-//import SignUp from '../components/login/SignUp';
-import Login from '../components/login/Login';
+import SignUp from '../components/login/SignUp';
 
 
-const LoginPage = () => {
+const SignUpPage = () => {
  
 
 return (
 
     <React.StrictMode>
-      <Login/>
+       <SignUp/>
     </React.StrictMode>
     
     
 );
 };
-export default LoginPage;
+export default SignUpPage;
