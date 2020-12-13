@@ -29,6 +29,11 @@ describe("Navigation", () => {
   describe("From the home page", () => {
     beforeEach(() => {
       cy.visit("/");
+      cy.get("nav").find("li").eq(6).click();
+      cy.get('input').eq(0).type('892397497@qq.com');
+      cy.get('input').eq(1).type('111111');
+      cy.get('button').click();
+      cy.visit("/");
     });
     it("should navigate to the movie details page and change browser URL", () => {
       cy.get(".card").eq(1).find("img").click();
@@ -70,6 +75,11 @@ describe("Navigation", () => {
   describe("From the Favorites page", () => {
     beforeEach(() => {
       cy.visit("/");
+      cy.get("nav").find("li").eq(6).click();
+      cy.get('input').eq(0).type('892397497@qq.com');
+      cy.get('input').eq(1).type('111111');
+      cy.get('button').click();
+      cy.visit("/");
       cy.get(".card").eq(0).find("button").click();
       cy.get("nav").find("li").eq(2).find("a").click();
     });
@@ -81,6 +91,11 @@ describe("Navigation", () => {
   });
   describe("The Go Back button", () => {
     beforeEach(() => {
+      cy.visit("/");
+      cy.get("nav").find("li").eq(6).click();
+      cy.get('input').eq(0).type('892397497@qq.com');
+      cy.get('input').eq(1).type('111111');
+      cy.get('button').click();
       cy.visit("/");
     });
     it("should navigate from home page to movie details and back", () => {
