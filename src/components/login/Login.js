@@ -24,8 +24,9 @@ export default function Login() {
         history.push("/Dashboard")    
         } catch  {
           setError('Failed to log in') 
-          setLoading(false) 
         }
+          setLoading(false) 
+        
         
     }
     return (

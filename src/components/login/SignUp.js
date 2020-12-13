@@ -25,8 +25,9 @@ export default function SignUp() {
         history.push("/Dashboard")      
         } catch  {
           setError('Failed to create an account') 
-          setLoading(false) 
         }
+          setLoading(false) 
+        
         
     }
     return (

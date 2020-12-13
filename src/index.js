@@ -24,6 +24,7 @@ import SignUpPage from "./pages/signUpPage";
 import DashboardPage from "./pages/DashboardPage";
 import PrivateRoute from "./components/PrivateRoute";
 import ForgotPasswordPage from "./pages/ForgotPasswordPage";
+import UpdateProfilePage from "./pages/UpdateProfilePage";
 
 const App = () => {
   return (
@@ -39,12 +40,13 @@ const App = () => {
         <Route exact path="/review/peopleform" component={AddPeopleReviewPage} />
           <Route exact path="/reviews/form" component={AddMovieReviewPage} /> 
           <Route path="/reviews/:id" component={MovieReviewPage} />
-          <Route exact path="/movies/favorites" component={FavoriteMoviesPage} />
           <Route exact path="/movies/upcoming" component={UpcomingMoviePage} />
           <Route exact path="/movies/nowplayingmovie" component={NowPlayingMoviePage} />
           <Route exact path="/people" component={MoviePeoplePage} />
           <Route exact path="/people/favoritePeople" component={FavoritePeoplePage} />
+          <PrivateRoute exact path="/movies/favorites" component={FavoriteMoviesPage} />
           <PrivateRoute exact path="/Dashboard" component={DashboardPage} />
+          <PrivateRoute path="/update-profile" component={UpdateProfilePage} />
           <Route path="/forgot-password" component={ForgotPasswordPage} />
           <Route path="/login" component={LoginPage} />
           <Route path="/signup" component={SignUpPage} />
