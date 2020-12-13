@@ -6,7 +6,7 @@ const  RateMovieButton = ({ movie }) => {
 
   const handleRateMovie = e => {
     e.preventDefault();
-    context.addTorateMovie(movie.id);
+    context.rateMovie(movie.id);
   };
   return (
     <button

@@ -1,9 +1,12 @@
 import React, { useState, useEffect,} from "react";
 
-import PageTemplate from '../components/templateMovieListPage'
+//import PageTemplate from '../components/templateMovieListPage'
 import { getNowPlayingMovie } from "../api/tmdb-api";
+import FilterControls from "../components/filterControls";
+import Header from "../components/headerMovieList";
+import RateMovieList from "../components/rateMovieList";
 
-import RateMovieButton from '../components/buttons/rateMovie'
+//import RateMovieButton from '../components/buttons/rateMovie'
 
 
 
@@ -17,13 +20,11 @@ import RateMovieButton from '../components/buttons/rateMovie'
    
   
     return (
-      <PageTemplate
-        title="Now Playing Movie"
-        movies={movies}  /* Changed */
-        action={(movie) => {
-          return <RateMovieButton movie={movie} />;
-        }}
-      />
+      <>
+        <Header numMovies={movies.length} />
+        <FilterControls />
+        <RateMovieList movies={movies} />
+      </>
     );
   };
 
@@ -31,3 +32,7 @@ import RateMovieButton from '../components/buttons/rateMovie'
 
   
 export default NowPlayingMoviePage;
+
+
+
+

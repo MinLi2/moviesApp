@@ -1,13 +1,13 @@
 import React from "react";
 import MovieHeader from '../headerMovie'
-import "./moviePage.css";
 
-const TemplateMoviePage = ({ movie, children }) => {
+
+const TemplateRateMoviePage = ({ movie, children }) => {
   return (
     <>
       <MovieHeader movie={movie} />
       <div className="row">
-        <div className="col-3 ">
+        <div className="col-3">
           <img  
             src={
               movie.poster_path
@@ -25,4 +25,4 @@ const TemplateMoviePage = ({ movie, children }) => {
   );
 };
 
-export default TemplateMoviePage;
+export default TemplateRateMoviePage;
