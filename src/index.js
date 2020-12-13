@@ -22,7 +22,8 @@ import AddPeopleReviewPage from './pages/addPeopleReviewPage';
 import { AuthProvider } from "./contexts/AuthContext";
 import SignUpPage from "./pages/signUpPage";
 import DashboardPage from "./pages/DashboardPage";
-
+import PrivateRoute from "./components/PrivateRoute";
+import ForgotPasswordPage from "./pages/ForgotPasswordPage";
 
 const App = () => {
   return (
@@ -43,7 +44,8 @@ const App = () => {
           <Route exact path="/movies/nowplayingmovie" component={NowPlayingMoviePage} />
           <Route exact path="/people" component={MoviePeoplePage} />
           <Route exact path="/people/favoritePeople" component={FavoritePeoplePage} />
-          <Route exact path="/Dashboard" component={DashboardPage} />
+          <PrivateRoute exact path="/Dashboard" component={DashboardPage} />
+          <Route path="/forgot-password" component={ForgotPasswordPage} />
           <Route path="/login" component={LoginPage} />
           <Route path="/signup" component={SignUpPage} />
           <Route path="/peoples/:id" component={PeoplePage} />

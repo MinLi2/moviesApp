@@ -2,20 +2,20 @@ import React from 'react'
 
 //import Log from "../components/login/Log"
 import 'bootstrap/dist/css/bootstrap.min.css'
-//import SignUp from '../components/login/SignUp';
-import Dashboard from '../components/login/Dashboard';
+
+import ForgotPassword from '../components/login/ForgotPassword';
 
 
-const DashboardPage = () => {
+const ForgotPasswordPage = () => {
  
 
 return (
 
     <React.StrictMode>
-       <Dashboard/>
+       <ForgotPassword/>
     </React.StrictMode>
     
     
 );
 };
-export default DashboardPage;
+export default ForgotPasswordPage;

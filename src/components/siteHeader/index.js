@@ -69,6 +69,11 @@ const SiteHeader = () => {
               Sign Up
             </Link>
           </li>
+          <li className="nav-item">
+            <Link className="nav-link text-white" to="/Dashboard">
+              Dashboard
+            </Link>
+          </li>
         </ul>
         
       </nav>
