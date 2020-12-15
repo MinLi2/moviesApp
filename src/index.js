@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
 import HomePage from "./pages/homePage";
-import MoviePage from './pages/movieDetailsPage'
+import MoviePage from './pages/movieDetailsPage';
 import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom"    // CHANGED
 import FavoriteMoviesPage from './pages/favoritesMoviesPage'       // NEW
 import MovieReviewPage from "./pages/movieReviewPage";
@@ -25,6 +25,7 @@ import DashboardPage from "./pages/DashboardPage";
 import PrivateRoute from "./components/PrivateRoute";
 import ForgotPasswordPage from "./pages/ForgotPasswordPage";
 import UpdateProfilePage from "./pages/UpdateProfilePage";
+import TopRatedMovie from "./pages/topRatedMovie";
 
 const App = () => {
   return (
@@ -42,6 +43,7 @@ const App = () => {
           <Route path="/reviews/:id" component={MovieReviewPage} />
           <Route exact path="/movies/upcoming" component={UpcomingMoviePage} />
           <Route exact path="/movies/nowplayingmovie" component={NowPlayingMoviePage} />
+          <Route exact path="/movies/topratedmovie" component={TopRatedMovie} />
           <Route exact path="/people" component={MoviePeoplePage} />
           <Route exact path="/people/favoritePeople" component={FavoritePeoplePage} />
           <PrivateRoute exact path="/movies/favorites" component={FavoriteMoviesPage} />

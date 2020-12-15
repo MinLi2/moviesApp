@@ -74,6 +74,11 @@ const SiteHeader = () => {
               Dashboard
             </Link>
           </li>
+          <li className="nav-item">
+            <Link className="nav-link text-white" to="/movies/topratedmovie">
+              Top rated 
+            </Link>
+          </li>
         </ul>
         
       </nav>
