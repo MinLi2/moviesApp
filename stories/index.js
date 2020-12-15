@@ -14,6 +14,8 @@ import PeopleDetailsHeader from "../src/components/headerPeopleDetails";
 import { MemoryRouter } from "react-router";
 import GenresContextProvider from "../src/contexts/genresContext";
 import { action } from "@storybook/addon-actions";
+import PeopleList from "../src/components/peopleList";
+import RateMovieList from "../src/components/rateMovieList";
 
 const sample = {
   adult: false,
@@ -146,6 +148,7 @@ storiesOf("Home Page/MovieList", module)
     );
   });
 
+ 
 storiesOf("Movie Details Page/MovieDetails", module).add("default", () => (
   <MovieDetails movie={sample} />
 ));
@@ -159,15 +162,58 @@ storiesOf("Movie Details Page/MovieHeader", module)
 
 
 storiesOf("Movie People Page/MoviePeopleDetails", module).add("default", () => (
-  <MoviePeopleDetails movie={sample} />
+  <MoviePeopleDetails people={sample} />
 ));
 
 storiesOf("Movie People Page/PeopleHeader", module)
+  .addDecorator(story => (
+    <PeopleHeader initialEntries={["/"]}>{story()}</PeopleHeader>
+  ))
+  .add("default", () => <PeopleHeader people={sample} />);
+
+  storiesOf("Movie People Page/PeopleHeader", module)
+  .addDecorator(story => (
+    <PeopleDetailsHeader initialEntries={["/"]}>{story()}</PeopleDetailsHeader>
+  ))
+  .add("default", () => <PeopleDetailsHeader people={sample} />);
+
+
+
+  storiesOf("Movie Details Page/MovieHeader", module)
   .addDecorator(story => (
     <MemoryRouter initialEntries={["/"]}>{story()}</MemoryRouter>
   ))
   .add("default", () => <MovieHeader movie={sample} />);
 
-storiesOf("People Details Page/PeopleDetailsHeader", module).add("default", () => (
-    <PeopleDetailsHeader movie={sample} />
-  ));
+  storiesOf("Movie People Page/PeopleList", module)
+  .addDecorator(story => (
+    <MemoryRouter initialEntries={["/"]}>{story()}</MemoryRouter>
+  ))
+  .add("default", () => {
+    const peoples = [sample, sample, sample, sample, sample];
+    return (
+      <PeopleList
+        peoples={peoples}
+        action={people => (
+          <button className="btn w-100 btn-primary">Test</button>
+        )}
+      />
+    );
+  });
+
+
+  storiesOf("Nowplaying movie Page/rate Movie List", module)
+  .addDecorator(story => (
+    <MemoryRouter initialEntries={["/"]}>{story()}</MemoryRouter>
+  ))
+  .add("default", () => {
+    const movies = [sample, sample, sample, sample, sample];
+    return (
+      <RateMovieList
+        movies={movies}
+        action={movie => (
+          <button className="btn w-100 btn-primary">Test</button>
+        )}
+      />
+    );
+  });
