@@ -65,12 +65,12 @@ describe("Navigation", () => {
         cy.get("nav").find("li").eq(3).find("a").click();
        
       });
-    it("should navigate from people home page to people details and back", () => {
-      cy.get(".card").eq(2).find("img").click();
-      cy.get("svg[data-icon=arrow-circle-left]").click();
-      cy.url().should("include", `/people`);
-      cy.get("h2").contains("No.People");
-    });
+    // it("should navigate from people home page to people details and back", () => {
+    //   cy.get(".card").eq(2).find("img").click();
+    //   cy.get("svg[data-icon=arrow-circle-left]").click();
+    //   cy.url().should("include", `/people`);
+    //   cy.get("h2").contains("No.People");
+    // });
     // it("should navigate from favorite people page to people details and back", () => {
     //     cy.get(".card").eq(2).find("button").click();
     //     cy.get("nav").find("li").eq(5).find("a").click();
