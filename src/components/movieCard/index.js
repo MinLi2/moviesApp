@@ -9,6 +9,7 @@ const MovieCard = ({movie, action}) => {
   return (
     <div className="col-sm-3">
       <div className="card  bg-white">
+        <div className="card-p">
       <Link to={`/movies/${movie.id}`}>
         <img
           className="card-img-tag center "
@@ -20,6 +21,7 @@ const MovieCard = ({movie, action}) => {
           }
         />
         </Link>
+        </div>
         <div className="card-body">
           <h4 className="card-title ">{movie.title}</h4>
           <p>
@@ -31,6 +33,10 @@ const MovieCard = ({movie, action}) => {
             <span> {movie.vote_average}</span>
           </p>
         </div>
+        <div className="card-over">
+        <h2>overview</h2> 
+        <p>{movie.overview}</p>
+    </div>
         <div className="card-footer">
         {action(movie)} 
     </div>

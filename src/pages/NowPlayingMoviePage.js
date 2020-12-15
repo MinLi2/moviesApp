@@ -10,29 +10,29 @@ import RateMovieList from "../components/rateMovieList";
 
 
 
-  const NowPlayingMoviePage = () => {
-    const [movies, setMovies] = useState([]);
-    useEffect(() => {
-      getNowPlayingMovie().then(movies => {
-        setMovies(movies);
+   const NowPlayingMoviePage = () => {
+     const [movies, setMovies] = useState([]);
+     useEffect(() => {
+       getNowPlayingMovie().then(movies => {
+         setMovies(movies);
       });
-    }, []);
+     }, []);
    
   
-    return (
+     return (
       <>
-        <Header numMovies={movies.length} />
-        <FilterControls />
-        <RateMovieList movies={movies} />
+         <Header numMovies={movies.length} />
+         <FilterControls />
+         <RateMovieList movies={movies} />
+         
       </>
-    );
-  };
+     );
+   };
 
 
 
   
-export default NowPlayingMoviePage;
-
+ export default NowPlayingMoviePage;
 
 
 

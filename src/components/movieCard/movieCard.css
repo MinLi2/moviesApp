@@ -8,13 +8,29 @@
 p {
   margin-top: 1px;
   margin-bottom: 1px;
+  
 }
+
 
 .card-body {
   padding-top: 1px;
   padding-bottom: 1px;
+ 
 }
 
 .card-title {
   text-align: center
+}
+.card-p{
+  padding: 0rem;
+}
+.card-over {
+  background-color:#fff;
+  color: #22254b;
+  position: relative;
+  padding: 1rem;
+  bottom:0;
+  left: 0;
+  right:0;
+ 
 }

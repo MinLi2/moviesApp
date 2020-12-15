@@ -10,6 +10,9 @@
   margin-bottom: 1px;
   }
   
+  .card-i {
+    margin: 0 auto;
+  }
   .card-body {
   padding-top: 1px;
   padding-bottom: 1px;

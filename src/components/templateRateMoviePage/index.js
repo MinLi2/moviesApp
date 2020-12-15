@@ -7,7 +7,7 @@ const TemplateRateMoviePage = ({ movie, children }) => {
     <>
       <MovieHeader movie={movie} />
       <div className="row">
-        <div className="col-3">
+        <div className="col-3 ">
           <img  
             src={
               movie.poster_path

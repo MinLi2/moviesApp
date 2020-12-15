@@ -1,5 +1,6 @@
 import React from "react";
 import {  withRouter } from "react-router-dom";
+import RateComponent from "../components/rateComponent";
 //import { Link, Route, withRouter } from "react-router-dom";
 //import MovieDetails from "../components/movieDetails";
 import TemplateRateMoviePage from "../components/templateRateMoviePage";
@@ -16,6 +17,7 @@ const RateMoviePage = props => {
       <>
         <TemplateRateMoviePage movie={movie}>
           
+         <RateComponent/> 
         </TemplateRateMoviePage>
         {/* <div className="row">
           <div className="col-12 ">

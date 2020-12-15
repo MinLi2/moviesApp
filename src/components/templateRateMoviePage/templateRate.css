@@ -1,0 +1,9 @@
+.img-w{
+
+    width: 400px;
+    height: 300px;
+    border: 1px dashed #ccc;
+    display: table-cell; 
+    vertical-align: middle;
+    text-align: center;
+}
