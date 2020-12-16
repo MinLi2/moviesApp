@@ -79,8 +79,9 @@ const SiteHeader = () => {
               Top rated 
             </Link>
           </li>
-        </ul>
         
+        </ul>
+      
       </nav>
     </nav>
   );
