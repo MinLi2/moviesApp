@@ -98,20 +98,20 @@ describe("Navigation", () => {
       cy.get('button').click();
       cy.visit("/");
     });
-    // it("should navigate from home page to movie details and back", () => {
-    //   cy.get(".card").eq(1).find("img").click();
-    //   cy.get("svg[data-icon=arrow-circle-left]").click();
-    //   cy.url().should("not.include", `/movies`);
-    //   cy.get("h2").contains("No. Movies");
-    // });
-//     it("should navigate from favorites page to movie details and back", () => {
-//         cy.get(".card").eq(2).find("button").click();
-//         cy.get("nav").find("li").eq(4).find("a").click();
-//         cy.get(".card").eq(0).find("img").click();
-//         cy.get("svg[data-icon=arrow-circle-left]").click();
-//         cy.url().should("include", `movies/favorites`);
-//         cy.get("h2").contains("Favorite Movies");
-//     });
+     it("should navigate from home page to movie details and back", () => {
+       cy.get(".card").eq(1).find("img").click();
+       cy.get("svg[data-icon=arrow-circle-left]").click();
+       cy.url().should("not.include", `/movies`);
+       cy.get("h2").contains("No. Movies");
+     });
+     it("should navigate from favorites page to movie details and back", () => {
+         cy.get(".card").eq(2).find("button").click();
+         cy.get("nav").find("li").eq(4).find("a").click();
+         cy.get(".card").eq(0).find("img").click();
+         cy.get("svg[data-icon=arrow-circle-left]").click();
+         cy.url().should("include", `movies/favorites`);
+         cy.get("h2").contains("Favorite Movies");
+     });
   });
  });
 

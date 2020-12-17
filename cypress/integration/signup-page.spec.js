@@ -48,7 +48,7 @@ describe("Signup", () => {
     
     
       // it("should display 'Passwords do not match'When you enter existing account email", () => {
-      //     cy.wait(10000)
+   
       //     cy.get('input').eq(0).type('892397497@qq.com');
       //     cy.get('input').eq(1).type('111111');
       //     cy.get('input').eq(2).type('111');
@@ -67,7 +67,7 @@ describe("Signup", () => {
   })
   describe("Button", () => {
       // it("should navigate to the profile page after entering correct data", () => {
-      //     cy.wait(10000)
+    
       //     cy.get('input').eq(0).type('892397497@qq.com');
       //     cy.get('input').eq(1).type('111111');
       //     cy.get('input').eq(2).type('111111');
