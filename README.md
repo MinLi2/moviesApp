@@ -30,7 +30,7 @@ npm i firebase
 npm i bootstrap react-bootstrap
 ## API Data Model.
 
-..... List the additional TMDB endpoints used in your assignment, e.g.
+
 
 + https://api.themoviedb.org/3/movie/now_playing - get information and a list of nowplaying movie.
 + https://api.themoviedb.org/3/person/popular -  get information and a list of movie actors.
@@ -46,7 +46,7 @@ npm i bootstrap react-bootstrap
 
 ### UI Design.
 
-...... Insert screenshots of the new/modified views you have added to the Movies Fan app. Include a caption for each one clearly stating its purpose and any user interaction it supports ........
+
 
 ![][topratedmovie]
 >Shows the movie list of top-rated movie. Clicking the 'Rate movie' button can rate movies
@@ -67,23 +67,23 @@ npm i bootstrap react-bootstrap
 >Show the function of writing reviews for the actors
 
 ![][login]
->Shows the log in interface. 
+>Shows the log in interface. Operate the log in function.
 
 ![][signup]
->Shows the sign up interface. 
+>Shows the sign up interface.  Operate the sign up function.
 
 ![][dashboard]
 >Shows the dashboard. Clicking the 'Show Reviews' button will display extracts from critic reviews.
 
 ![][forgetpassword]
->Shows the forget password interface. 
+>Shows the forget password interface. Reset the password.
 
 ![][updateprofile]
->Shows the update profile interface. 
+>Shows the update profile interface.  Operate the update profile function.
 
 ## Routing.
 
-...... Insert a list of the additional routes supported by your Movies Fan app. If relevant, specify which of the routes require authentication, i.e. protected/private.
+
 
 + /movies/favorites (protected) - displays the user's favorite movies selection.
 + /reviews/:id (public) - displays the full text of a movie review.
@@ -104,7 +104,7 @@ npm i bootstrap react-bootstrap
 
 ### Data hyperlinking.
 
-.... Use screenshots to illustrate where data hyperlinking is present in your views - include captions.
+
 
 ![][cardLink]
 > Clicking a card causes the display of that movie's details. 
@@ -137,8 +137,7 @@ Cypress Dashboard URL: https://dashboard.cypress.io/organizations/fe266867-b744-
 
 ### Advanced Testing (If required).
 
-[State briefly each instances of boundary and/or error/exceptional test case in your project]
-e.g.
+
 
 + cypress/integration/movieReviewPage.spec.js - test the movieReview page when the Review id is invalid. 
 + cypress/integration/movieDetails.spec.js - test when a movie has no reviews.
@@ -146,7 +145,6 @@ e.g.
 
 ## Independent learning (If relevant).
 
-. . . . . Briefly mention each technologies/techniques used in your project codebase that were not covered in the lectures/labs. Provide source code filename references to support your assertions and include reference material links (articles/blogs).
 some functions about css.                                        https://www.youtube.com/watch?v=sZ0bZGfg_m4&t=1052s.
 Basic teaching of cypress.                                       https://docs.cypress.io/api/cypress-api/custom-commands.html#Syntax.
 Basic teaching of writing login interface with firebase.         https://www.youtube.com/watch?v=PKwu15ldZ7k&t=537s.  
