@@ -73,7 +73,7 @@ npm i bootstrap react-bootstrap
 >Shows the sign up interface.  Operate the sign up function.
 
 ![][dashboard]
->Shows the dashboard. Clicking the 'Show Reviews' button will display extracts from critic reviews.
+>Shows the dashboard. Operate the log out or update profile function.
 
 ![][forgetpassword]
 >Shows the forget password interface. Reset the password.
@@ -104,16 +104,8 @@ npm i bootstrap react-bootstrap
 
 ### Data hyperlinking.
 
-
-
-![][cardLink]
-> Clicking a card causes the display of that movie's details. 
-
 ![][peoplecardLink]
 > Clicking a card causes the display of that people's details.
-
-![][reviewLink]
->Clicking the 'Full Review' for a review extract will display the full text of the review.
 
 ![][forgetpasswordlink]
 >Clicking the 'forgetpassword' to reset the password.
@@ -153,7 +145,7 @@ Basic teaching of Ant Design - Third party react UI Library。    https://ant.de
 
 
 [stories]: ./public/storybook.png
-[favourite people]:./public/favouritepeople.png
+[favouritepeople]:./public/favouritepeople.png
 [topratedmovie]: ./public/toprated.png
 [similarmovie]: ./public/similar.png
 [people]: ./public/people.png
@@ -169,5 +161,6 @@ Basic teaching of Ant Design - Third party react UI Library。    https://ant.de
 [signuplink]:./public/signuplink.png
 [logoutlink]:./public/logoutlink.png
 [cancellink]:./public/cancellink.png
+[peoplecardLink]:./public/peoplecardLink.png
 
 
