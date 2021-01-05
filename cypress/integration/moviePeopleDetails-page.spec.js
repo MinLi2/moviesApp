@@ -39,13 +39,13 @@ describe("People Details Page", () => {
   it("should display the people's details", () => {
     cy.get("h4").contains("popularity");
     cy.get("h4").next().contains(people.popularity);
-    cy.get("ul")
-      .eq(2)
-      .within(() => {
+    // cy.get("ul")
+    //   .eq(2)
+    //   .within(() => {
        
-        cy.get("li").eq(0).contains("place_of_birth");
-        cy.get("li").eq(1).contains(people.place_of_birth);
-      });
+    //     cy.get("li").eq(0).contains("place_of_birth");
+    //     cy.get("li").eq(1).contains(people.place_of_birth);
+    //   });
       cy.get("ul")
       .eq(3)
       .within(() => {

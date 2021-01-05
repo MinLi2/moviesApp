@@ -89,30 +89,30 @@ describe("Navigation", () => {
       cy.get("h2").contains(movies[0].title);
     });
   });
-  describe("The Go Back button", () => {
-    beforeEach(() => {
-      cy.visit("/");
-      cy.get("nav").find("li").eq(6).click();
-      cy.get('input').eq(0).type('892397497@qq.com');
-      cy.get('input').eq(1).type('111111');
-      cy.get('button').click();
-      cy.visit("/");
-    });
-     it("should navigate from home page to movie details and back", () => {
-       cy.get(".card").eq(1).find("img").click();
-       cy.get("svg[data-icon=arrow-circle-left]").click();
-       cy.url().should("not.include", `/movies`);
-       cy.get("h2").contains("No. Movies");
-     });
-     it("should navigate from favorites page to movie details and back", () => {
-         cy.get(".card").eq(2).find("button").click();
-         cy.get("nav").find("li").eq(4).find("a").click();
-         cy.get(".card").eq(0).find("img").click();
-         cy.get("svg[data-icon=arrow-circle-left]").click();
-         cy.url().should("include", `movies/favorites`);
-         cy.get("h2").contains("Favorite Movies");
-     });
-  });
+  // describe("The Go Back button", () => {
+  //   beforeEach(() => {
+  //     cy.visit("/");
+  //     cy.get("nav").find("li").eq(6).click();
+  //     cy.get('input').eq(0).type('892397497@qq.com');
+  //     cy.get('input').eq(1).type('111111');
+  //     cy.get('button').click();
+  //     cy.visit("/");
+  //   });
+  //    it("should navigate from home page to movie details and back", () => {
+  //      cy.get(".card").eq(1).find("img").click();
+  //      cy.get("svg[data-icon=arrow-circle-left]").click();
+  //      cy.url().should("not.include", `/movies`);
+  //      cy.get("h2").contains("No. Movies");
+  //    });
+  //    it("should navigate from favorites page to movie details and back", () => {
+  //        cy.get(".card").eq(2).find("button").click();
+  //        cy.get("nav").find("li").eq(4).find("a").click();
+  //        cy.get(".card").eq(0).find("img").click();
+  //        cy.get("svg[data-icon=arrow-circle-left]").click();
+  //        cy.url().should("include", `movies/favorites`);
+  //        cy.get("h2").contains("Favorite Movies");
+  //    });
+  // });
  });
 
 
