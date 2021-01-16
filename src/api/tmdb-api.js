@@ -38,13 +38,25 @@ export const getMovies = () => {
       .then(res => res.json())
       .then(json => json.results);
   };
-  export const getUpcomingMovie = id => {
+  // export const getUpcomingMovie = id => {
+  //   return fetch(
+  //     `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`
+  //   )
+  //     .then(res => res.json())
+  //     .then(json => json.results);
+  // };
+  export const  getUpcomingMovie = () => {
     return fetch(
-      `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`
-    )
-      .then(res => res.json())
-      .then(json => json.results);
+      '/api/upcoming',{headers:{
+        'Authorization': window.localStorage.getItem('token') 
+      },
+    method:'get',
+      }
+      ).then(res => res.json());
+      
   };
+ 
+
 
   // export const getNowPlayingMovie = id => {
   //   return fetch(
