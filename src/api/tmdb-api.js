@@ -16,10 +16,20 @@ export const getMovies = () => {
     
 };
   
+  // export const getMovie = id => {
+  //   return fetch(
+  //     `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.REACT_APP_TMDB_KEY}`
+  //   ).then(res => res.json());
+  // };/api/moviedetail
   export const getMovie = id => {
-    return fetch(
-      `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.REACT_APP_TMDB_KEY}`
-    ).then(res => res.json());
+    return fetch(`/api/movie/${id}`, {
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    method:'get',
+      }
+      ).then(res => res.json());
+      
   };
   
   export const getGenres = () => {
@@ -95,11 +105,23 @@ export const getMovies = () => {
       ).then(res => res.json());
       
   };
+  // export const getPeopleDetails = id => {
+  //   return fetch(
+  //     `https://api.themoviedb.org/3/person/${id}?api_key=${process.env.REACT_APP_TMDB_KEY}`
+  //   ).then(res => res.json());
+  // };
   export const getPeopleDetails = id => {
-    return fetch(
-      `https://api.themoviedb.org/3/person/${id}?api_key=${process.env.REACT_APP_TMDB_KEY}`
-    ).then(res => res.json());
+    return fetch(`/api/actordetails/${id}`, {
+      headers: {
+        'Authorization': window.localStorage.getItem('token') 
+      },
+    method:'get',
+      }
+      ).then(res => res.json());
+      
   };
+
+
   
   export const rateMovie = id => {
     return fetch(
