@@ -111,16 +111,14 @@ export const getMovies = () => {
   //   ).then(res => res.json());
   // };
   export const getPeopleDetails = id => {
-    return fetch(`/api/actordetails/${id}`, {
+    return fetch(`/api/actordetail/${id}`, {
       headers: {
-        'Authorization': window.localStorage.getItem('token') 
+        'Authorization': window.localStorage.getItem('token')
       },
-    method:'get',
-      }
-      ).then(res => res.json());
+      method: 'get',
       
+  }).then(res => res.json())
   };
-
 
   
   export const rateMovie = id => {
