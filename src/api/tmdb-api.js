@@ -1,15 +1,35 @@
+// export const getMovies = () => {
+//     return fetch(
+//       `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&include_adult=false&page=1`
+//     )
+//       .then(res => res.json())
+//       .then(json => json.results);
+//   };
 export const getMovies = () => {
-    return fetch(
-      `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&include_adult=false&page=1`
-    )
-      .then(res => res.json())
-      .then(json => json.results);
-  };
-  
-  export const getMovie = id => {
-    return fetch(
-      `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.REACT_APP_TMDB_KEY}`
+  return fetch(
+    '/api/movies',{headers:{
+      'Authorization': window.localStorage.getItem('token') 
+    },
+  method:'get',
+    }
     ).then(res => res.json());
+    
+};
+  
+  // export const getMovie = id => {
+  //   return fetch(
+  //     `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.REACT_APP_TMDB_KEY}`
+  //   ).then(res => res.json());
+  // };/api/moviedetail
+  export const getMovie = id => {
+    return fetch(`/api/movie/${id}`, {
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    method:'get',
+      }
+      ).then(res => res.json());
+      
   };
   
   export const getGenres = () => {
@@ -28,37 +48,78 @@ export const getMovies = () => {
       .then(res => res.json())
       .then(json => json.results);
   };
-  export const getUpcomingMovie = id => {
+  // export const getUpcomingMovie = id => {
+  //   return fetch(
+  //     `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`
+  //   )
+  //     .then(res => res.json())
+  //     .then(json => json.results);
+  // };
+  export const  getUpcomingMovie = () => {
     return fetch(
-      `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`
-    )
-      .then(res => res.json())
-      .then(json => json.results);
+      '/api/upcoming',{headers:{
+        'Authorization': window.localStorage.getItem('token') 
+      },
+    method:'get',
+      }
+      ).then(res => res.json());
+      
   };
-
-  export const getNowPlayingMovie = id => {
-    return fetch(
-      `https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`
-    )
-      .then(res => res.json())
-      .then(json => json.results);
-  };
-
  
 
-  export const getPeople = id => {
+
+  // export const getNowPlayingMovie = id => {
+  //   return fetch(
+  //     `https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`
+  //   )
+  //     .then(res => res.json())
+  //     .then(json => json.results);
+  // };
+  export const getNowPlayingMovie = () => {
     return fetch(
-      `https://api.themoviedb.org/3/person/popular?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`
-    )
-      .then(res => res.json())
-      .then(json => json.results);
+      '/api/nowplaying',{headers:{
+        'Authorization': window.localStorage.getItem('token') 
+      },
+    method:'get',
+      }
+      ).then(res => res.json());
+      
+  };
+ 
+
+  // export const getPeople = id => {
+  //   return fetch(
+  //     `https://api.themoviedb.org/3/person/popular?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`
+  //   )
+  //     .then(res => res.json())
+  //     .then(json => json.results);
+  // };
+
+  export const getPeople = () => {
+    return fetch(
+      '/api/actors',{headers:{
+        'Authorization': window.localStorage.getItem('token') 
+      },
+    method:'get',
+      }
+      ).then(res => res.json());
+      
+  };
+  // export const getPeopleDetails = id => {
+  //   return fetch(
+  //     `https://api.themoviedb.org/3/person/${id}?api_key=${process.env.REACT_APP_TMDB_KEY}`
+  //   ).then(res => res.json());
+  // };
+  export const getPeopleDetails = id => {
+    return fetch(`/api/actordetail/${id}`, {
+      headers: {
+        'Authorization': window.localStorage.getItem('token')
+      },
+      method: 'get',
+      
+  }).then(res => res.json())
   };
 
-  export const getPeopleDetails = id => {
-    return fetch(
-      `https://api.themoviedb.org/3/person/${id}?api_key=${process.env.REACT_APP_TMDB_KEY}`
-    ).then(res => res.json());
-  };
   
   export const rateMovie = id => {
     return fetch(
